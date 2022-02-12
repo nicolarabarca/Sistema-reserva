@@ -40,19 +40,20 @@ var baseDatos = [];
 function agregar() {
   baseDatos.push(capturarUsuario);
   document.getElementById("prueba").innerHTML +=
-    "<p>" +
+    "<p> La reservación quedara agendada  a nombre de" +
+    " " +
     capturarUsuario.nombre +
     "</p>" +
+    " " +
     "<p>" +
     capturarUsuario.apellido +
     "</p>" +
-    "<p>" +
+    "<p Corre Electrónico : " +
+    " " +
     capturarUsuario.correo +
     "</p>" +
-    "<p>" +
-    capturarUsuario.escribe +
-    "</p>" +
-    "<p>" +
+    "<p> para el dia " +
+    " " +
     capturarUsuario.fecha +
     "</p>";
 }
