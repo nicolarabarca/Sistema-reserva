@@ -46,14 +46,15 @@
     <!--Cierre modal inicial -->
 
         <!-- Apertura Contacto -->
-        <form id="contact" class="container text-center py-5">
+        <form id="contact" class="container text-center py-5 needs-validation" novalidate>
           <div class="mb-5">
             <h5 class="text-dark">Reserva</h5>
     
             <hr  />
             <div class="row">
               <div class="col-12 col-md-6 mt-2">
-                <input id="nombre" type="text" class="form-control" placeholder="Nombre" aria-label="First name">
+    
+                <input id="nombre" type="text"  for="validationCustom01"  class="form-control" placeholder="Nombre" aria-label="First name">
               </div>
               <div class="col-12 col-md-6 mt-2">
                 <input id="apellido" type="text" class="form-control" placeholder="Apellido" aria-label="Last name">
@@ -81,7 +82,7 @@
            
             
         <!-- Button trigger modal -->
-    <button id="send" type="reset"  class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button id="send" type="button"  class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Enviar
     </button>
     
@@ -90,7 +91,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title  ms-5 ps-5" id="exampleModalLabel">Confirmar datos de reservada</h5>
+            <h5 class="modal-title  ms-5 " id="exampleModalLabel">Confirmar datos de reservada</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body modal-dialog" >
@@ -99,16 +100,20 @@
           
           <div class="modal-footer">
             <div class="d-grid gap-2 col-6 mx-auto">
-            <button  class="btn-success">confirmar</button>
+            <button  id="confirmar" class="btn-success" value="Enviar">Confirmar </button>
           </div>
-          
-    
+      
+              
+           
+          </div>
             
         </div>
       </div>
     </div>
           </div>
           </form>
+          
+  
         <!-- Cierre Contacto -->
   
     <script

@@ -57,3 +57,12 @@ function agregar() {
     capturarUsuario.fecha +
     "</p>";
 }
+
+const buttonConfirmar = document.getElementById("confirmar");
+buttonConfirmar.addEventListener("click", ask, false);
+
+function ask() {
+  if (alert("Completaste tu reserva. Nos vemos pronto")) {
+    document.buttonFinish.submit();
+  }
+}
