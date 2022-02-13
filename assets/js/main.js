@@ -59,6 +59,7 @@ const validateTerms = (document.getElementById("formulario").onsubmit =
     opcion = document.formulario.condiciones; //acceso al botón
     if (opcion.checked == true) {
       agregar();
+      return false;
     } else {
       //botón no seleccionado
       alert(
