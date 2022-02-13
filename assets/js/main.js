@@ -13,11 +13,11 @@ function post() {
       this.appointment = captureAppointment;
     }
   }
-  var captureName = document.getElementById("nombre").value;
-  var captureLastName = document.getElementById("apellido").value;
-  var captureMail = document.getElementById("correo").value;
-  var captureComment = document.getElementById("escribe").value;
-  var captureAppointment = document.getElementById("fecha").value;
+  var captureName = document.getElementById("getName").value;
+  var captureLastName = document.getElementById("getLastName").value;
+  var captureMail = document.getElementById("getMail").value;
+  var captureComment = document.getElementById("getComment").value;
+  var captureAppointment = document.getElementById("getAppointment").value;
   var appointment = new Date();
   appointment =
     appointment.getDate() +
@@ -34,10 +34,12 @@ function post() {
     captureComment
   );
 }
-//Crear  array con push y variable capturarUsuario
-var baseDatos = [];
-function agregar() {
-  baseDatos.push(captureUser);
+//Array para almacenar datos solicitados al usuario para reserva
+let personDataBase = [];
+
+// Se guardan e imprimen datos en pantalla para luego pedir confimaciòn a usuario y finalizar la reserva
+function addData() {
+  personDataBase.push(captureUser);
   document.getElementById("prueba").innerHTML +=
     "<p> La reservación quedara agendada  a nombre de" +
     " " +
@@ -53,22 +55,24 @@ function agregar() {
     "</p>" +
     "<p> para el dia " +
     " " +
-    captureUser.fecha +
+    captureUser.appointment +
     "</p>";
 }
 
-//validar terminos y condiciones
+//Se solicita id de formulario para acceder a check terminos y condiciones
 
-const validateTerms = (document.getElementById("formulario").onsubmit =
-  function acceptTerms() {
-    opcion = document.formulario.condiciones; //acceso al botón
-    if (opcion.checked == true) {
-      agregar();
+const validateTerms = (document.getElementById("applicationForm").onsubmit =
+  function acceptTerms(event) {
+    accept = document.applicationForm.terms; //acceso a check terminos y condiciones
+
+    if (accept.checked == true) {
+      addData(event);
+      event.preventDefault();
     } else {
-      //botón no seleccionado
+      //Ingresa en esta parte del ciclo cuando se hace click en boton enviar sin aceptar terminos
       alert(
         "El formulario no ha podido enviarse. \n Debe aceptar las condiciones para poder enviar el formulario"
       );
-      return false; //el formulario no se envia
+      return false; // no se envia informaciòn de reserva
     }
   });

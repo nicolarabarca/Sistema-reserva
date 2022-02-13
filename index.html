@@ -19,115 +19,107 @@
     <!-- Bootstrap Bundle with Popper -->
 
     <!-- Apertura Contacto -->
-    
-      <form
-        name="formulario"
-        action="#"
-        id="formulario"
-        class="container text-center py-5 needs-validation"
-        novalidate
-      >
-        <div class="mb-5">
-          <h5 class="text-dark">Reserva</h5>
 
-          <hr />
-          <div class="row">
-            <div class="col-12 col-md-6 mt-2">
-              <input
-                id="nombre"
-                name="nombre"
-                type="text"
-                for="validationCustom01"
-                class="form-control"
-                placeholder="Nombre"
-                aria-label="First name"
-              />
-            </div>
-            <div class="col-12 col-md-6 mt-2">
-              <input
-                id="apellido"
-                type="text"
-                class="form-control"
-                placeholder="Apellido"
-                aria-label="Last name"
-              />
-            </div>
-            <div class="col-12 col-md-6 mt-2">
-              <input
-                id="correo"
-                name="correo"
-                type="email"
-                class="form-control"
-                placeholder="nombre@ejemplo.com"
-              />
-            </div>
-            <div class="col-12 col-md-6 mt-2">
-              <input
-                id="fecha"
-                type="date"
-                class="form-control"
-                placeholder="Fecha de reservaciòn"
-                aria-label="date"
-              />
-            </div>
+    <form
+      name="applicationForm"
+      id="applicationForm"
+      class="container text-center py-5 needs-validation"
+      novalidate
+      method="get"
+    >
+      <div class="mb-5">
+        <h5 class="text-dark">Reserva</h5>
+
+        <hr />
+        <div class="row">
+          <div class="col-12 col-md-6 mt-2">
+            <input
+              id="getName"
+              name="getName"
+              type="text"
+              class="form-control"
+              placeholder="Escribe aquì tu Nombre"
+              aria-label="First name"
+            />
           </div>
-          <label for="exampleFormControlTextarea1" class="form-label mt-2"
-            >Selecciona tu mesa</label
-          >
-          <select class="form-select" aria-label="Default select example">
-            <option value="">Selecciona tu mesa</option>
-            <option value="1">Mesa 1 balcon</option>
-            <option value="2">Mesa 2 interior</option>
-            <option value="3">Mesa 3 Costado Piscina</option>
-          </select>
-          <div>
-            <label for="exampleFormControlTextarea1" class="form-label mt-2"
-              >Escribe algo que deberiamos tomar en cuenta</label
-            >
-            <textarea id="escribe" type="text" class="form-control" i rows="3">
-            </textarea>
+          <div class="col-12 col-md-6 mt-2">
+            <input
+              id="getLastName"
+              type="text"
+              class="form-control"
+              placeholder="Escribe aquì tu Apellido"
+              aria-label="Last name"
+            />
           </div>
-
-          <input type="checkbox" name="condiciones" value="aceptado" />
-          He leido y acepto las condiciones del contrato <br /><br />
-
-          <!-- Button trigger modal -->
-          <button
-            id="send"
-            type="submit"
-            class="btn btn-secondary mt-2"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-          >
-            Enviar
-          </button>
+          <div class="col-12 col-md-6 mt-2">
+            <input
+              id="getMail"
+              name="getMail"
+              type="email"
+              class="form-control"
+              placeholder="nombre@ejemplo.com"
+            />
+          </div>
+          <div class="col-12 col-md-6 mt-2">
+            <input
+              id="getAppointment"
+              name="getAppointment"
+              type="date"
+              class="form-control"
+              aria-label="date"
+            />
+          </div>
         </div>
-      </form>
-   
-      <!-- Modal -->
-      <div>
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title " id="exampleModalLabel">
-                 Datos reserva
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body modal-dialog">
-              <p id="prueba"></p>
-            </div>
+        <p class="form-label mt-2">Selecciona tu mesa</p>
+        <select class="form-select" aria-label="Default select example">
+          <option value="">Selecciona tu mesa</option>
+          <option value="1">Mesa 1 balcon</option>
+          <option value="2">Mesa 2 interior</option>
+          <option value="3">Mesa 3 Costado Piscina</option>
+        </select>
+        <div>
+          <p class="form-label mt-2">
+            Escribe algo que deberiamos tomar en cuenta
+          </p>
+          <p id="getComment" class="form-control boxComment"></p>
+        </div>
 
-      
+        <input type="checkbox" name="terms" value="aceptado" />
+        He leido y acepto las condiciones del contrato <br /><br />
+
+        <!-- Button trigger modal -->
+        <button
+          id="send"
+          type="submit"
+          class="btn btn-secondary mt-2"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Enviar
+        </button>
+      </div>
+    </form>
+
+    <!-- Modal -->
+    <div>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Datos reserva</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body modal-dialog">
+            <p id="prueba"></p>
           </div>
         </div>
       </div>
     </div>
+
     <!-- Cierre Contacto -->
 
     <script
