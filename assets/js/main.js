@@ -4,11 +4,11 @@ s;
 // Captura datos de formulario de contacto
 function post() {
   class Persona {
-    constructor(name, lastName, correo, escribe) {
+    constructor(name, lastName, mail, comment) {
       this.name = name;
       this.lastName = lastName;
-      this.correo = correo;
-      this.escribe = escribe;
+      this.mail = mail;
+      this.comment = comment;
       this.fecha = capturarFecha;
     }
   }
@@ -21,7 +21,7 @@ function post() {
   fecha = fecha.getDate() + "/" + fecha.getMonth() + "/" + fecha.getFullYear();
   capturarFecha;
 
-  capturarUsuario = new Persona(
+  captureUser = new Persona(
     capturarNombre,
     capturarApellido,
     capturarCorreo,
@@ -31,23 +31,23 @@ function post() {
 //Crear  array con push y variable capturarUsuario
 var baseDatos = [];
 function agregar() {
-  baseDatos.push(capturarUsuario);
+  baseDatos.push(captureUser);
   document.getElementById("prueba").innerHTML +=
     "<p> La reservación quedara agendada  a nombre de" +
     " " +
-    capturarUsuario.nombre +
+    captureUser.name +
     "</p>" +
     " " +
     "<p>" +
-    capturarUsuario.apellido +
+    captureUser.lastName +
     "</p>" +
     "<p Corre Electrónico : " +
     " " +
-    capturarUsuario.correo +
+    captureUser.mail +
     "</p>" +
     "<p> para el dia " +
     " " +
-    capturarUsuario.fecha +
+    captureUser.fecha +
     "</p>";
 }
 
@@ -58,7 +58,6 @@ const validateTerms = (document.getElementById("formulario").onsubmit =
     opcion = document.formulario.condiciones; //acceso al botón
     if (opcion.checked == true) {
       agregar();
-     break;
     } else {
       //botón no seleccionado
       alert(
