@@ -1,13 +1,12 @@
-// id boton enviar
-const buttonSend = document.getElementById("send");
-buttonSend.addEventListener("click", enviar, false);
+// id boton eviar  datos para hacer confirmaciòn
+s;
 
 // Captura datos de formulario de contacto
-function enviar() {
+function post() {
   class Persona {
-    constructor(nombre, apellido, correo, escribe) {
-      this.nombre = nombre;
-      this.apellido = apellido;
+    constructor(name, lastName, correo, escribe) {
+      this.name = name;
+      this.lastName = lastName;
       this.correo = correo;
       this.escribe = escribe;
       this.fecha = capturarFecha;
@@ -59,7 +58,7 @@ const validateTerms = (document.getElementById("formulario").onsubmit =
     opcion = document.formulario.condiciones; //acceso al botón
     if (opcion.checked == true) {
       agregar();
-      return false;
+     break;
     } else {
       //botón no seleccionado
       alert(
