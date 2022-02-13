@@ -1,31 +1,37 @@
 // id boton eviar  datos para hacer confirmaciòn
-s;
+const buttonSend = document.getElementById("send");
+buttonSend.addEventListener("click", post, false);
 
 // Captura datos de formulario de contacto
 function post() {
-  class Persona {
+  class Person {
     constructor(name, lastName, mail, comment) {
       this.name = name;
       this.lastName = lastName;
       this.mail = mail;
       this.comment = comment;
-      this.fecha = capturarFecha;
+      this.appointment = captureAppointment;
     }
   }
-  var capturarNombre = document.getElementById("nombre").value;
-  var capturarApellido = document.getElementById("apellido").value;
-  var capturarCorreo = document.getElementById("correo").value;
-  var capturarMensaje = document.getElementById("escribe").value;
-  var capturarFecha = document.getElementById("fecha").value;
-  var fecha = new Date();
-  fecha = fecha.getDate() + "/" + fecha.getMonth() + "/" + fecha.getFullYear();
-  capturarFecha;
+  var captureName = document.getElementById("nombre").value;
+  var captureLastName = document.getElementById("apellido").value;
+  var captureMail = document.getElementById("correo").value;
+  var captureComment = document.getElementById("escribe").value;
+  var captureAppointment = document.getElementById("fecha").value;
+  var appointment = new Date();
+  appointment =
+    appointment.getDate() +
+    "/" +
+    appointment.getMonth() +
+    "/" +
+    appointment.getFullYear();
+  captureAppointment;
 
-  captureUser = new Persona(
-    capturarNombre,
-    capturarApellido,
-    capturarCorreo,
-    capturarMensaje
+  captureUser = new Person(
+    captureName,
+    captureLastName,
+    captureMail,
+    captureComment
   );
 }
 //Crear  array con push y variable capturarUsuario
