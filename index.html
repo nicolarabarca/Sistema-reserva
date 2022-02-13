@@ -17,105 +17,119 @@
   </head>
   <body>
     <!-- Bootstrap Bundle with Popper -->
-<!-- Apertura Modal Inicial -->
-<section></section>
-<div class="modal fade" id="modalInicial" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Recuerda!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        
-       Para hacer efectiva tu reservas cada una de las personas que asistan deben tener su <span class="text-info"> Pase se movilidad </span> vigente. 
-        <br>
-        <p>De lo contrario no podran acceder al local</p>
-        <p>¿Deseas continuar con la reserva ?</p>
-      </div>
-      <div class="modal-footer">
-        <a  class="btn btn-danger" href="https://www.chileatiende.gob.cl/fichas/93514-pase-de-movilidad" target="_blank" rel="noopener noreferrer">Como obtener pase de movilidad</a>
-         
-        <button type="button" data-bs-dismiss="modal" class="btn btn-success">Si,deseo continuar</button>
-      </div>
-    </div>
-    
-  </div>
-</div>
-</section>
-    <!--Cierre modal inicial -->
 
-        <!-- Apertura Contacto -->
-        <form id="contact" class="container text-center py-5 needs-validation" novalidate>
-          <div class="mb-5">
-            <h5 class="text-dark">Reserva</h5>
+    <!-- Apertura Contacto -->
     
-            <hr  />
-            <div class="row">
-              <div class="col-12 col-md-6 mt-2">
-    
-                <input id="nombre" type="text"  for="validationCustom01"  class="form-control" placeholder="Nombre" aria-label="First name">
-              </div>
-              <div class="col-12 col-md-6 mt-2">
-                <input id="apellido" type="text" class="form-control" placeholder="Apellido" aria-label="Last name">
-              </div>
-              <div class="col-12 col-md-6 mt-2">
-                
-                <input id="correo" type="email" class="form-control"  placeholder="nombre@ejemplo.com">
-              </div>
-              <div class="col-12 col-md-6 mt-2">
-                <input id="fecha" type="date" class="form-control" placeholder="Fecha de reservaciòn" aria-label="date">
-              </div>
-              
+      <form
+        name="formulario"
+        action="#"
+        id="formulario"
+        class="container text-center py-5 needs-validation"
+        novalidate
+      >
+        <div class="mb-5">
+          <h5 class="text-dark">Reserva</h5>
+
+          <hr />
+          <div class="row">
+            <div class="col-12 col-md-6 mt-2">
+              <input
+                id="nombre"
+                name="nombre"
+                type="text"
+                for="validationCustom01"
+                class="form-control"
+                placeholder="Nombre"
+                aria-label="First name"
+              />
             </div>
-            <label for="exampleFormControlTextarea1" class="form-label mt-2">Selecciona  tu mesa</label>
-            <select id="mesa" class="form-select" aria-label="Default select example">
-              <option selected>Selecciona tu mesa</option>
-              <option value="1">Mesa 1 balcon</option>
-              <option value="2">Mesa 2 interior</option>
-              <option value="3">Mesa 3 Costado Piscina</option>
-            </select>
-            <div >
-              <label for="exampleFormControlTextarea1" class="form-label mt-2">Escribe algo que deberiamos tomar en cuenta</label>
-              <textarea id= "escribe" type="text" class="form-control" i rows="3" > </textarea>
+            <div class="col-12 col-md-6 mt-2">
+              <input
+                id="apellido"
+                type="text"
+                class="form-control"
+                placeholder="Apellido"
+                aria-label="Last name"
+              />
             </div>
-           
-            
-        <!-- Button trigger modal -->
-    <button id="send" type="button"  class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Enviar
-    </button>
-    
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title  ms-5 " id="exampleModalLabel">Confirmar datos de reservada</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="col-12 col-md-6 mt-2">
+              <input
+                id="correo"
+                name="correo"
+                type="email"
+                class="form-control"
+                placeholder="nombre@ejemplo.com"
+              />
+            </div>
+            <div class="col-12 col-md-6 mt-2">
+              <input
+                id="fecha"
+                type="date"
+                class="form-control"
+                placeholder="Fecha de reservaciòn"
+                aria-label="date"
+              />
+            </div>
           </div>
-          <div class="modal-body modal-dialog" >
-            <P id="prueba" ></P>
+          <label for="exampleFormControlTextarea1" class="form-label mt-2"
+            >Selecciona tu mesa</label
+          >
+          <select class="form-select" aria-label="Default select example">
+            <option value="">Selecciona tu mesa</option>
+            <option value="1">Mesa 1 balcon</option>
+            <option value="2">Mesa 2 interior</option>
+            <option value="3">Mesa 3 Costado Piscina</option>
+          </select>
+          <div>
+            <label for="exampleFormControlTextarea1" class="form-label mt-2"
+              >Escribe algo que deberiamos tomar en cuenta</label
+            >
+            <textarea id="escribe" type="text" class="form-control" i rows="3">
+            </textarea>
           </div>
-          
-          <div class="modal-footer">
-            <div class="d-grid gap-2 col-6 mx-auto">
-            <button  id="confirmar" class="btn-success" value="Enviar">Confirmar </button>
-          </div>
+
+          <input type="checkbox" name="condiciones" value="aceptado" />
+          He leido y acepto las condiciones del contrato <br /><br />
+
+          <!-- Button trigger modal -->
+          <button
+            id="send"
+            type="submit"
+            class="btn btn-secondary mt-2"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Enviar
+          </button>
+        </div>
+      </form>
+   
+      <!-- Modal -->
+      <div>
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title " id="exampleModalLabel">
+                 Datos reserva
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body modal-dialog">
+              <p id="prueba"></p>
+            </div>
+
       
-              
-           
           </div>
-            
         </div>
       </div>
     </div>
-          </div>
-          </form>
-          
-  
-        <!-- Cierre Contacto -->
-  
+    <!-- Cierre Contacto -->
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

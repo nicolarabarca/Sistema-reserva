@@ -1,8 +1,4 @@
-// Se carga modal Inicial de advertencia
-$(document).ready(function () {
-  $("#modalInicial").modal("show");
-});
-
+// id boton enviar
 const buttonSend = document.getElementById("send");
 buttonSend.addEventListener("click", enviar, false);
 
@@ -32,8 +28,6 @@ function enviar() {
     capturarCorreo,
     capturarMensaje
   );
-
-  agregar();
 }
 //Crear  array con push y variable capturarUsuario
 var baseDatos = [];
@@ -58,11 +52,18 @@ function agregar() {
     "</p>";
 }
 
-const buttonConfirmar = document.getElementById("confirmar");
-buttonConfirmar.addEventListener("click", ask, false);
+//validar terminos y condiciones
 
-function ask() {
-  if (alert("Completaste tu reserva. Nos vemos pronto")) {
-    document.buttonFinish.submit();
-  }
-}
+const validateTerms = (document.getElementById("formulario").onsubmit =
+  function acceptTerms() {
+    opcion = document.formulario.condiciones; //acceso al botón
+    if (opcion.checked == true) {
+      agregar();
+    } else {
+      //botón no seleccionado
+      alert(
+        "El formulario no ha podido enviarse. \n Debe aceptar las condiciones para poder enviar el formulario"
+      );
+      return false; //el formulario no se envia
+    }
+  });
