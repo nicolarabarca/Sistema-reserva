@@ -4,13 +4,13 @@
 function validateMobilityPass() {
   let repeat = true;
   let askMobilityPass = prompt(
-    "¿Deseas continuar con la reserva. Responde con un SI o un NO"
+    "Recuerda que al momento de hacer valida tu reserva debes presentar tu pase de movilidad vigente,\n¿Deseas continuar con la reserva. Responde con un SI o un NO"
   ).toLocaleLowerCase();
   while (repeat) {
     if (askMobilityPass == "si") {
       alert("Puedes continuar con tu reserva :D");
       break;
-    } else if (askMobilityPass == "no") {
+    } else if (askMobilityPass == "no" || askMobilityPass !== " ") {
       alert("Conseguir mi pase de movilidad");
       location.href =
         "https://www.chileatiende.gob.cl/fichas/93514-pase-de-movilidad";
@@ -63,7 +63,9 @@ let personDataBase = [];
 function addData() {
   personDataBase.push(captureUser);
   document.getElementById("prueba").innerHTML +=
-    "<p> La reservación quedara agendada  a nombre de" +
+    "<p>" +
+    " " +
+    "<p>La reservación quedara agendada  a nombre de" +
     " " +
     captureUser.name +
     "</p>" +
@@ -73,6 +75,7 @@ function addData() {
     "</p>" +
     "<p Corre Electrónico : " +
     " " +
+    "<p>" +
     captureUser.mail +
     "</p>" +
     "<p> para el dia " +
