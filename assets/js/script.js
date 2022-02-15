@@ -109,3 +109,44 @@ function cleanInput() {
 }
 
 // Falta realizar las validaciones de los demàs campos para que no se pueda duplicar la informaciòn
+
+// Funciòn donde se implente array para imprimir caracteristicas de mesas disponibles para reserva
+
+function printDataTable() {
+  const dataTable = [
+    {
+      id: 1,
+      name: "Barra",
+      description:
+        "Ideal para venir solo o con amigos, tendras una vista panoramica de todo el lugar",
+    },
+    {
+      id: 2,
+      name: "Mesa interior",
+      description:
+        "Ubicaciòn ideal para ir con un grupo amplio de personas y tener una grata conversaciòn",
+    },
+    {
+      id: 3,
+      name: "Mesa Balcón",
+      description:
+        "Podràs disfrutas de una hermosa vista a la Cordillera de los Andes",
+    },
+    {
+      id: 4,
+      name: "Mesa Exterior",
+      description: "Ideal para venir con los màs peques de la casa. ",
+    },
+  ];
+  console.log(dataTable); // Se verifica que corresponda a un array
+  for (const arrayDataTable of dataTable) {
+    document.getElementById("main").innerHTML +=
+      "<p>" +
+      arrayDataTable.name +
+      "</p>" +
+      "<p>" +
+      arrayDataTable.description +
+      "</p>";
+  }
+}
+printDataTable();
