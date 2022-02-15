@@ -2,6 +2,7 @@
  ya que sin el no se puede ingresar al local.*/
 
 function validateMobilityPass() {
+  // SE PODRIA MODIFICAR POR UNSWITCH
   let repeat = true;
   let askMobilityPass = prompt(
     "Recuerda que al momento de hacer valida tu reserva debes presentar tu pase de movilidad vigente,\n¿Deseas continuar con la reserva. Responde con un SI o un NO"
@@ -85,7 +86,7 @@ function addData() {
 }
 
 //CICLO donde se solicita id de formulario para acceder a check terminos y condiciones
-
+// TENGO QUE SOLICITAR VALIDACION ATODOS LOS CAMPOS PARA Q NO SE IMPRIMA FORMULARIO SOLO CON ACEPTAR TERMINOS
 const validateTerms = (document.getElementById("applicationForm").onsubmit =
   function acceptTerms(event) {
     accept = document.applicationForm.terms; //acceso a check terminos y condiciones
@@ -106,3 +107,5 @@ function cleanInput() {
   setTimeout("document.applicationForm.reset()", 100);
   return false;
 }
+
+// Falta realizar las validaciones de los demàs campos para que no se pueda duplicar la informaciòn
