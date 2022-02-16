@@ -2,7 +2,7 @@
  ya que sin el no se puede ingresar al local.*/
 
 function validateMobilityPass() {
-  // SE PODRIA MODIFICAR POR UNSWITCH
+  // SE PODRIA MODIFICAR POR UNSWITCH??
   let repeat = true;
   let askMobilityPass = prompt(
     "Recuerda que al momento de hacer valida tu reserva debes presentar tu pase de movilidad vigente,\n¿Deseas continuar con la reserva. Responde con un SI o un NO"
@@ -21,6 +21,56 @@ function validateMobilityPass() {
 }
 
 validateMobilityPass();
+
+// Funciòn donde se implementa  array para imprimir caracteristicas de mesas disponibles para reserva
+
+function printDataTable() {
+  const dataTable = [
+    {
+      id: 1,
+      name: "Barra",
+      description:
+        "Ideal para venir solo o con amigos, tendras una vista panoramica de todo el lugar",
+      img: "/assets/img/barra.jpg ",
+    },
+    {
+      id: 2,
+      name: "Mesa interior",
+      description:
+        "Ubicaciòn ideal para ir con un grupo amplio de personas y tener una grata conversaciòn",
+      img: "/assets/img/barra.jpg ",
+    },
+    {
+      id: 3,
+      name: "Mesa Balcón",
+      description:
+        "Podràs disfrutas de una hermosa vista a la Cordillera de los Andes",
+      img: "/assets/img/barra.jpg ",
+    },
+    {
+      id: 4,
+      name: "Mesa Exterior",
+      description: "Ideal para venir con los màs peques de la casa. ",
+      img: "/assets/img/barra.jpg ",
+    },
+  ];
+  console.log(dataTable); // Se verifica que corresponda a un array
+  for (const arrayDataTable of dataTable) {
+    document.getElementById("main").innerHTML +=
+      "<p>" +
+      arrayDataTable.name +
+      "</p>" +
+      "<p>" +
+      arrayDataTable.description +
+      "</p>" +
+      '<img src="' +
+      arrayDataTable.img +
+      '" height="100" width="100"/>';
+  }
+}
+printDataTable();
+
+// AQUÌ COMIENZA FUNCIÒN PARA  SOLICITAR DATOS GUARDARLOS EN ARRAY Y LUEGO ENVIAR FORMULARIO
 
 // id boton eviar  datos para hacer confirmaciòn
 const buttonSend = document.getElementById("send");
@@ -63,6 +113,7 @@ let personDataBase = [];
 // Se guardan e imprimen datos en pantalla para luego pedir confimaciòn a usuario y finalizar la reserva
 function addData() {
   personDataBase.push(captureUser);
+
   document.getElementById("prueba").innerHTML +=
     "<p>" +
     " " +
@@ -85,68 +136,57 @@ function addData() {
     "</p>";
 }
 
-//CICLO donde se solicita id de formulario para acceder a check terminos y condiciones
-// TENGO QUE SOLICITAR VALIDACION ATODOS LOS CAMPOS PARA Q NO SE IMPRIMA FORMULARIO SOLO CON ACEPTAR TERMINOS
-const validateTerms = (document.getElementById("applicationForm").onsubmit =
-  function acceptTerms(event) {
-    accept = document.applicationForm.terms; //acceso a check terminos y condiciones
-    event.preventDefault();
-    if (accept.checked == true) {
-      addData();
-      cleanInput();
-    } else {
-      //Ingresa en esta parte del ciclo cuando se hace click en boton enviar sin aceptar terminos
-      alert(
-        "El formulario no ha podido enviarse. \n Debe aceptar las condiciones para poder enviar el formulario"
-      );
-      return false; // no se envia informaciòn de reserva
-    }
-  });
 // Limpiar campos cuando el usuario haga click en enviarpara que no se  duplique  informaciòn
 function cleanInput() {
   setTimeout("document.applicationForm.reset()", 100);
   return false;
 }
 
-// Falta realizar las validaciones de los demàs campos para que no se pueda duplicar la informaciòn
+//VALIDACIÒN FORMULARIO
 
-// Funciòn donde se implente array para imprimir caracteristicas de mesas disponibles para reserva
+const validationAccess = document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+    document
+      .getElementById("applicationForm")
+      .addEventListener("submit", validateForm);
+  }
+);
 
-function printDataTable() {
-  const dataTable = [
-    {
-      id: 1,
-      name: "Barra",
-      description:
-        "Ideal para venir solo o con amigos, tendras una vista panoramica de todo el lugar",
-    },
-    {
-      id: 2,
-      name: "Mesa interior",
-      description:
-        "Ubicaciòn ideal para ir con un grupo amplio de personas y tener una grata conversaciòn",
-    },
-    {
-      id: 3,
-      name: "Mesa Balcón",
-      description:
-        "Podràs disfrutas de una hermosa vista a la Cordillera de los Andes",
-    },
-    {
-      id: 4,
-      name: "Mesa Exterior",
-      description: "Ideal para venir con los màs peques de la casa. ",
-    },
-  ];
-  console.log(dataTable); // Se verifica que corresponda a un array
-  for (const arrayDataTable of dataTable) {
-    document.getElementById("main").innerHTML +=
-      "<p>" +
-      arrayDataTable.name +
-      "</p>" +
-      "<p>" +
-      arrayDataTable.description +
-      "</p>";
+function validateForm(evento) {
+  evento.preventDefault();
+  let validateName = document.getElementById("getName").value;
+  if (validateName.length == 0) {
+    alert("Escribe tu nombre");
+    return;
+  }
+  let validateLastName = document.getElementById("getLastName").value;
+  if (validateLastName.length == 0) {
+    alert("escribe tu apellido");
+    return;
+  }
+  let validateLastMail = document.getElementById("getMail").value;
+  if (validateLastMail.length == 0) {
+    alert("escribe tu correo");
+    return;
+  }
+
+  let validateAppointment = document.getElementById("getAppointment").value;
+  if (validateAppointment.length == 0) {
+    alert("Ingresa una fecha");
+    return;
+  }
+
+  let acceptTerms = document.applicationForm.terms; //acceso a check terminos y condiciones
+
+  if (acceptTerms.checked == true) {
+    addData();
+    cleanInput();
+  } else {
+    //Ingresa en esta parte del ciclo cuando se hace click en boton enviar sin aceptar terminos
+    alert(
+      "El formulario no ha podido enviarse. \n Debe aceptar las condiciones para poder enviar el formulario"
+    );
+    return false; // no se envia informaciòn de reserva
   }
 }
-printDataTable();
