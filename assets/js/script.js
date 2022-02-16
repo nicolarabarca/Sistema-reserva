@@ -54,21 +54,23 @@ function printDataTable() {
       img: "/assets/img/barra.jpg ",
     },
   ];
-  console.log(dataTable); // Se verifica que corresponda a un array
+  const CardStructure = document.getElementById("main");
+  const items = document.getElementById("templatecard").content;
+  const fragmento = document.createDocumentFragment();
   for (const arrayDataTable of dataTable) {
-    document.getElementById("main").innerHTML +=
-      "<p>" +
-      arrayDataTable.name +
-      "</p>" +
-      "<p>" +
-      arrayDataTable.description +
-      "</p>" +
-      '<img src="' +
-      arrayDataTable.img +
-      '" height="100" width="100"/>';
+    CardStructure.querySelector("h4").textContent = arrayDataTable.name;
+    CardStructure.querySelector("h5").textContent = arrayDataTable.description;
+    CardStructure.querySelector("img").setAttribute("src", arrayDataTable.img);
+
+    const clone = CardStructure.cloneNode(true);
+    fragmento.appendChild(clone);
   }
 }
+
 printDataTable();
+
+console.log(printDataTable);
+// Funcion para agregar cantidad de  personas a la reserva
 
 // AQUÌ COMIENZA FUNCIÒN PARA  SOLICITAR DATOS GUARDARLOS EN ARRAY Y LUEGO ENVIAR FORMULARIO
 
