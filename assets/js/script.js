@@ -51,25 +51,54 @@ function printDataTable() {
       id: 4,
       name: "Mesa Exterior",
       description: "Ideal para venir con los màs peques de la casa. ",
-      img: "/assets/img/barra.jpg ",
+      img: "/assets/img/MesaPiscina.jpg ",
+    },
+    {
+      id: 5,
+      name: "Mesa Exterior",
+      description: "Ideal para venir con los màs peques de la casa. ",
+      img: "/assets/img/MesaPiscina.jpg ",
+    },
+    {
+      id: 6,
+      name: "Mesa Exterior",
+      description: "Ideal para venir con los màs peques de la casa. ",
+      img: "/assets/img/MesaPiscina.jpg ",
+    },
+    {
+      id: 7,
+      name: "Mesa Exterior",
+      description: "Ideal para venir con los màs peques de la casa. ",
+      img: "/assets/img/MesaPiscina.jpg ",
+    },
+
+    {
+      id: 8,
+      name: "Mesa Exterior",
+      description: "Ideal para venir con los màs peques de la casa. ",
+      img: "/assets/img/MesaPiscina.jpg ",
     },
   ];
-  const CardStructure = document.getElementById("main");
-  const items = document.getElementById("templatecard").content;
-  const fragmento = document.createDocumentFragment();
+  //const CardStructure = document.getElementById("main");
+  const templateCard = document.getElementById("template-card").content;
+  const cards = document.getElementById("cards");
+  const fragment = document.createDocumentFragment();
   for (const arrayDataTable of dataTable) {
-    CardStructure.querySelector("h4").textContent = arrayDataTable.name;
-    CardStructure.querySelector("h5").textContent = arrayDataTable.description;
-    CardStructure.querySelector("img").setAttribute("src", arrayDataTable.img);
+    //CardStructure.querySelector("h4").textContent = arrayDataTable.name;
+    //CardStructure.querySelector("h5").textContent = arrayDataTable.description;
+    //CardStructure.querySelector("img").setAttribute("src", arrayDataTable.img);
+    templateCard.querySelector("h5").textContent = arrayDataTable.name;
+    templateCard.querySelector("p").textContent = arrayDataTable.description;
+    templateCard.querySelector("img").setAttribute("src", arrayDataTable.img);
+    templateCard.querySelector("button").dataset.id = arrayDataTable.id;
+    const clone = templateCard.cloneNode(true);
 
-    const clone = CardStructure.cloneNode(true);
-    fragmento.appendChild(clone);
+    //const clone = CardStructure.cloneNode(true);
+    fragment.appendChild(clone);
   }
+  cards.appendChild(fragment);
 }
-
 printDataTable();
-
-console.log(printDataTable);
 // Funcion para agregar cantidad de  personas a la reserva
 
 // AQUÌ COMIENZA FUNCIÒN PARA  SOLICITAR DATOS GUARDARLOS EN ARRAY Y LUEGO ENVIAR FORMULARIO
