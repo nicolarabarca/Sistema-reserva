@@ -21,85 +21,102 @@ function validateMobilityPass() {
 }
 
 validateMobilityPass();
-
-// Funciòn donde se implementa  array para imprimir caracteristicas de mesas disponibles para reserva
-
 function printDataTable() {
+  class Mesa {
+    constructor(id, name, price, description, img) {
+      this.id = id;
+      this.name = name;
+      this.price = price;
+      this.description = description;
+      this.img = img;
+    }
+  }
   const dataTable = [
     {
       id: 1,
       name: "Barra",
-      description:
-        "Ideal para venir solo o con amigos, tendras una vista panoramica de todo el lugar",
+      price: " El valor de reserva es de $5000 p/p ",
+      description: "uno",
       img: "/assets/img/barra.jpg ",
     },
     {
       id: 2,
       name: "Mesa interior",
-      description:
-        "Ubicaciòn ideal para ir con un grupo amplio de personas y tener una grata conversaciòn",
+      price: " El valor de reserva es de $5000 p/p ",
+      description: " dos",
       img: "/assets/img/barra.jpg ",
     },
     {
       id: 3,
       name: "Mesa Balcón",
-      description:
-        "Podràs disfrutas de una hermosa vista a la Cordillera de los Andes",
+      price: " El valor de reserva es de $5000 p/p ",
+      description: "tres",
       img: "/assets/img/barra.jpg ",
     },
     {
       id: 4,
       name: "Mesa Exterior",
+      price: " El valor de reserva es de $5000 p/p ",
       description: "Ideal para venir con los màs peques de la casa. ",
       img: "/assets/img/MesaPiscina.jpg ",
     },
     {
       id: 5,
       name: "Mesa Exterior",
-      description: "Ideal para venir con los màs peques de la casa. ",
+      price: " El valor de reserva es de $5000 p/p ",
+      description: "4 ",
       img: "/assets/img/MesaPiscina.jpg ",
     },
     {
       id: 6,
       name: "Mesa Exterior",
-      description: "Ideal para venir con los màs peques de la casa. ",
+      price: " El valor de reserva es de $5000 p/p ",
+      description: "5 ",
       img: "/assets/img/MesaPiscina.jpg ",
     },
     {
       id: 7,
       name: "Mesa Exterior",
-      description: "Ideal para venir con los màs peques de la casa. ",
+      price: " El valor de reserva es de $5000 p/p ",
+      description: "6 ",
       img: "/assets/img/MesaPiscina.jpg ",
     },
 
     {
       id: 8,
       name: "Mesa Exterior",
-      description: "Ideal para venir con los màs peques de la casa. ",
+      price: " El valor de reserva es de $5000 p/p ",
+      description: "siete ",
       img: "/assets/img/MesaPiscina.jpg ",
     },
   ];
+
+  // Funciòn donde se implementa  array para imprimir caracteristicas de mesas disponibles para reserva
+
   //const CardStructure = document.getElementById("main");
   const templateCard = document.getElementById("template-card").content;
   const cards = document.getElementById("cards");
   const fragment = document.createDocumentFragment();
   for (const arrayDataTable of dataTable) {
-    //CardStructure.querySelector("h4").textContent = arrayDataTable.name;
-    //CardStructure.querySelector("h5").textContent = arrayDataTable.description;
-    //CardStructure.querySelector("img").setAttribute("src", arrayDataTable.img);
-    templateCard.querySelector("h5").textContent = arrayDataTable.name;
-    templateCard.querySelector("p").textContent = arrayDataTable.description;
-    templateCard.querySelector("img").setAttribute("src", arrayDataTable.img);
-    templateCard.querySelector("button").dataset.id = arrayDataTable.id;
+    hola = templateCard.querySelector("h5").textContent = arrayDataTable.name;
+    holados = templateCard.querySelector("p").textContent =
+      arrayDataTable.description;
+    holatres = templateCard.querySelector("h6").textContent =
+      arrayDataTable.price;
+    holacuatro = templateCard
+      .querySelector("img")
+      .setAttribute("src", arrayDataTable.img);
+    holacinco = templateCard.querySelector("button").dataset.id =
+      arrayDataTable.id;
+
     const clone = templateCard.cloneNode(true);
 
-    //const clone = CardStructure.cloneNode(true);
     fragment.appendChild(clone);
+    capturetable = new Mesa(hola, holados, holatres, holacuatro /*holacinco*/);
   }
   cards.appendChild(fragment);
 }
 printDataTable();
-// Funcion para agregar cantidad de  personas a la reserva
 
 // AQUÌ COMIENZA FUNCIÒN PARA  SOLICITAR DATOS GUARDARLOS EN ARRAY Y LUEGO ENVIAR FORMULARIO
 
@@ -141,6 +158,7 @@ function post() {
 }
 //Array para almacenar datos solicitados al usuario para reserva
 let personDataBase = [];
+
 // Se guardan e imprimen datos en pantalla para luego pedir confimaciòn a usuario y finalizar la reserva
 function addData() {
   personDataBase.push(captureUser);
@@ -220,4 +238,18 @@ function validateForm(evento) {
     );
     return false; // no se envia informaciòn de reserva
   }
+}
+
+//INTENTANDO AÑADIR A UN CARRITO LOS DATOS PINTADOS EN  PANTALLA
+
+//const arrayPickaTable = dataTable.push(arrayDataTable);
+//console.log(addDataTable);
+
+const buttonprueba = document.getElementById("cards");
+buttonprueba.addEventListener("click", intento, false);
+
+function intento(params) {
+  const addDataTable = [];
+
+  const añadir = addDataTable.push(capturetable.id);
 }
