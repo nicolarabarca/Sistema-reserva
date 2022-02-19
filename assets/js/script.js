@@ -33,61 +33,61 @@ function printDataTable() {
   }
   const dataTable = [
     {
-      id: 1,
+      id: "mesa 1",
       name: "Barra",
       price: " El valor de reserva es de $5000 p/p ",
       description: "uno",
-      img: "/assets/img/barra.jpg ",
+      img: "assets/img/barra.jpg ",
     },
     {
-      id: 2,
+      id: "mesa 2",
       name: "Mesa interior",
       price: " El valor de reserva es de $5000 p/p ",
       description: " dos",
-      img: "/assets/img/barra.jpg ",
+      img: "assets/img/barra.jpg ",
     },
     {
-      id: 3,
+      id: "mesa 3",
       name: "Mesa Balcón",
       price: " El valor de reserva es de $5000 p/p ",
       description: "tres",
-      img: "/assets/img/barra.jpg ",
+      img: "assets/img/barra.jpg ",
     },
     {
-      id: 4,
+      id: "mesa 4",
       name: "Mesa Exterior",
       price: " El valor de reserva es de $5000 p/p ",
       description: "Ideal para venir con los màs peques de la casa. ",
       img: "/assets/img/MesaPiscina.jpg ",
     },
     {
-      id: 5,
+      id: "mesa 5",
       name: "Mesa Exterior",
       price: " El valor de reserva es de $5000 p/p ",
       description: "4 ",
-      img: "/assets/img/MesaPiscina.jpg ",
+      img: "assets/img/MesaPiscina.jpg ",
     },
     {
-      id: 6,
+      id: "mesa 6",
       name: "Mesa Exterior",
       price: " El valor de reserva es de $5000 p/p ",
       description: "5 ",
-      img: "/assets/img/MesaPiscina.jpg ",
+      img: "assets/img/MesaPiscina.jpg ",
     },
     {
-      id: 7,
+      id: "mesa 7",
       name: "Mesa Exterior",
       price: " El valor de reserva es de $5000 p/p ",
       description: "6 ",
-      img: "/assets/img/MesaPiscina.jpg ",
+      img: "assets/img/MesaPiscina.jpg ",
     },
 
     {
-      id: 8,
+      id: "mesa 8",
       name: "Mesa Exterior",
       price: " El valor de reserva es de $5000 p/p ",
       description: "siete ",
-      img: "/assets/img/MesaPiscina.jpg ",
+      img: "assets/img/MesaPiscina.jpg ",
     },
   ];
 
@@ -98,21 +98,31 @@ function printDataTable() {
   const cards = document.getElementById("cards");
   const fragment = document.createDocumentFragment();
   for (const arrayDataTable of dataTable) {
-    hola = templateCard.querySelector("h5").textContent = arrayDataTable.name;
-    holados = templateCard.querySelector("p").textContent =
-      arrayDataTable.description;
-    holatres = templateCard.querySelector("h6").textContent =
+    buttonTable = templateCard.querySelector(".btn-dark").dataset.id =
+      arrayDataTable.id;
+    nameTable = templateCard.querySelector("h5").textContent =
+      arrayDataTable.name;
+
+    priceTable = templateCard.querySelector("h6").textContent =
       arrayDataTable.price;
-    holacuatro = templateCard
+    descriptionTable = templateCard.querySelector("p").textContent =
+      arrayDataTable.description;
+
+    imgTable = templateCard
       .querySelector("img")
       .setAttribute("src", arrayDataTable.img);
-    holacinco = templateCard.querySelector("button").dataset.id =
-      arrayDataTable.id;
 
+    capturetable = new Mesa(
+      buttonTable,
+      nameTable,
+      priceTable,
+      descriptionTable,
+      imgTable
+    );
+    console.log(buttonTable);
     const clone = templateCard.cloneNode(true);
 
     fragment.appendChild(clone);
-    capturetable = new Mesa(hola, holados, holatres, holacuatro /*holacinco*/);
   }
   cards.appendChild(fragment);
 }
@@ -127,7 +137,7 @@ buttonSend.addEventListener("click", post, false);
 // Captura datos de formulario de contacto
 function post() {
   class Person {
-    constructor(name, lastName, mail, comment) {
+    constructor(name, lastName, mail, comment, numberPerson) {
       this.name = name;
       this.lastName = lastName;
       this.mail = mail;
@@ -140,6 +150,11 @@ function post() {
   var captureMail = document.getElementById("getMail").value;
   var captureComment = document.getElementById("getComment").value;
   var captureAppointment = document.getElementById("getAppointment").value;
+  var capturenumberPerson = document.getElementById("getNumberPerson").value;
+  const valorreserva = 5000;
+
+  answer = capturenumberPerson * valorreserva;
+
   var appointment = new Date();
   appointment =
     appointment.getDate() +
@@ -182,6 +197,9 @@ function addData() {
     "<p> para el dia " +
     " " +
     captureUser.appointment +
+    "</p>" +
+    "<p>" +
+    answer +
     "</p>";
 }
 
@@ -225,6 +243,11 @@ function validateForm(evento) {
     alert("Ingresa una fecha");
     return;
   }
+  let validateNumbwrPerson = document.getElementById("getNumberPerson").value;
+  if (validateNumbwrPerson == 0) {
+    alert("Ingresa un numero de personas");
+    return;
+  }
 
   let acceptTerms = document.applicationForm.terms; //acceso a check terminos y condiciones
 
@@ -240,16 +263,13 @@ function validateForm(evento) {
   }
 }
 
-//INTENTANDO AÑADIR A UN CARRITO LOS DATOS PINTADOS EN  PANTALLA
-
-//const arrayPickaTable = dataTable.push(arrayDataTable);
-//console.log(addDataTable);
-
-const buttonprueba = document.getElementById("cards");
+//SE INTENTA CAPTURAR EL EVENTO DEL BOTON Y GUARDAR EN ARRAY LOQUE CLIQUEO LA PERSONA
+/*const buttonprueba = document.getElementById("cards");
 buttonprueba.addEventListener("click", intento, false);
 
-function intento(params) {
+function intento() {
   const addDataTable = [];
-
-  const añadir = addDataTable.push(capturetable.id);
+  console.log(addDataTable);
+  addDataTable.push(buttonTable);
 }
+*/
