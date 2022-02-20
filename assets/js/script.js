@@ -274,4 +274,4 @@ function separateIdButton() {
     e.stopPropagation();
   });
 }
-pruebaaislarboton();
+separateIdButton();
