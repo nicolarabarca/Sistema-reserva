@@ -98,7 +98,7 @@ function printDataTable() {
   const cards = document.getElementById("cards");
   const fragment = document.createDocumentFragment();
   for (const arrayDataTable of dataTable) {
-    var buttonTable = (templateCard.querySelector(".btn-dark").dataset.id =
+    var buttonTable = (templateCard.querySelector("button").dataset.id =
       arrayDataTable.id);
     nameTable = templateCard.querySelector("h5").textContent =
       arrayDataTable.name;
@@ -137,7 +137,7 @@ buttonSend.addEventListener("click", post, false);
 // Captura datos de formulario de contacto
 function post() {
   class Person {
-    constructor(name, lastName, mail, comment, numberPerson) {
+    constructor(name, lastName, mail, comment) {
       this.name = name;
       this.lastName = lastName;
       this.mail = mail;
@@ -270,8 +270,8 @@ function separateIdButton() {
       const addDataTable = [];
       console.log(addDataTable);
       addDataTable.push(e.target.dataset.id);
+      document.getElementById("prueba").innerHTML += ` ${e.target.dataset.id}`;
     }
-    e.stopPropagation();
   });
 }
 separateIdButton();
