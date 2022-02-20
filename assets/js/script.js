@@ -41,7 +41,7 @@ function printDataTable() {
     },
     {
       id: "mesa 2",
-      name: "Mesa interior",
+      name: "Mesa General",
       price: " El valor de reserva es de $5000 p/p ",
       description: " dos",
       img: "assets/img/barra.jpg ",
@@ -98,8 +98,8 @@ function printDataTable() {
   const cards = document.getElementById("cards");
   const fragment = document.createDocumentFragment();
   for (const arrayDataTable of dataTable) {
-    buttonTable = templateCard.querySelector(".btn-dark").dataset.id =
-      arrayDataTable.id;
+    var buttonTable = (templateCard.querySelector(".btn-dark").dataset.id =
+      arrayDataTable.id);
     nameTable = templateCard.querySelector("h5").textContent =
       arrayDataTable.name;
 
@@ -119,7 +119,7 @@ function printDataTable() {
       descriptionTable,
       imgTable
     );
-    console.log(buttonTable);
+
     const clone = templateCard.cloneNode(true);
 
     fragment.appendChild(clone);
@@ -263,13 +263,15 @@ function validateForm(evento) {
   }
 }
 
-//SE INTENTA CAPTURAR EL EVENTO DEL BOTON Y GUARDAR EN ARRAY LOQUE CLIQUEO LA PERSONA
-/*const buttonprueba = document.getElementById("cards");
-buttonprueba.addEventListener("click", intento, false);
-
-function intento() {
-  const addDataTable = [];
-  console.log(addDataTable);
-  addDataTable.push(buttonTable);
+// Funciòn para aislar id del boton y al hacer click añadirlo a un array.
+function separateIdButton() {
+  cards.addEventListener("click", (e) => {
+    if (e.target.dataset.id) {
+      const addDataTable = [];
+      console.log(addDataTable);
+      addDataTable.push(e.target.dataset.id);
+    }
+    e.stopPropagation();
+  });
 }
-*/
+pruebaaislarboton();
